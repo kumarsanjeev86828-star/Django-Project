@@ -84,7 +84,7 @@ def attendance(request):
         return HttpResponse("Attendance Marked Successfully")
     emps = Employee.objects.all()
     context = {'emps': emps}
-    return render(request,'attendance.html',context)
+    return render(request, 'emp_app/attendance.html', context)
 
 
 # View Attendance Records
