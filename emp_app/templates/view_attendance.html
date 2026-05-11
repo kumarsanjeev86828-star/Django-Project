@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>View Attendance</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+<h1 class="text-center mt-4">Attendance Record</h1>
+<hr>
+<table class="table table-bordered">
+<thead class="table-dark">
+<tr>
+<th>ID</th>
+<th>Employee</th>
+<th>Date</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+{% for att in attendance_data %}
+<tr>
+<td>{{ att.id }}</td>
+<td>
+{{ att.employee.first_name }}
+{{ att.employee.last_name }}
+</td>
+<td>
+{{ att.date }}
+</td>
+<td>
+{% if att.status == "Present" %}
+<span class="badge bg-success">Present</span>
+{% else %}
+<span class="badge bg-danger">Absent</span>
+{% endif %}
+</td>
+<td>  
+    <a href="/delete_attendance/{{ att.id }}" class="btn btn-danger btn-sm"> Delete</a>
+</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+</body>
+</html>
