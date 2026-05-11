@@ -1,1 +1,1 @@
-web: gunicorn office_emp_proj.wsgi:application
+gunicorn office_emp_proj.wsgi:application
